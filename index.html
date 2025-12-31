@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+
+    <header id="menu-Inicial">
+        <!-- ideia a se considerar, fazer outro menu hamburger do outro lado, com simbolo ed engrenagem ,pra fazer uma configuracao de modo claro e escuro-->
+           
+ <!-- lembrete para amanha, tentar entender melhor tambem o max widht e min wdiht e height, esta confuso. (16/12)-->
+ <!-- remover no pc e deixar como opcao no footer-->
+ <!-- chat, sei q vc vai ler isso,quando vc me propor um novo desafio, me faca lembrar de usar varias classes com animacoes tb, no sentio de criar uma classe so pra uma animacao ok?-->
+  <!-- ha um pequeno bug na animacao de hover no card no mobile, que quando eu passo por cima ele joga os outros para baixo. nao sei o que fazer pra resolver mas seguirei o desafio.-->
+        <div class="logoImg">
+               <img src="Dot_red_logo.png">
+        </div>
+
+        <button id="menu-Botao">
+            <div class="menu-Botao-linhas"> </div>
+            <div class="menu-Botao-linhas"> </div>
+            <div class="menu-Botao-linhas"> </div>
+        </button>
+
+        <nav id="nav-Links">
+            <ul>
+                <li class="nav-Lists"><a>HOME</a></li>
+                <li class="nav-Lists"><a>PRODUTOS</a></li>
+                <li class="nav-Lists"><a>SERVICOS</a></li>
+                <li class="nav-Lists"><a>SOBRE</a></li>
+                <li class="nav-Lists"><a>CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main-Content"> 
+        <h1>APRENDA A PROGRAMAR DO ZERO!</h1>
+        
+        <div id="subtitleWrapper">
+            <h2>Aprender a programar é</h2>
+                <div>
+                    <span class="words">PRAZEROSO!</span>
+                    <span class="words">AGRADÁVEL!</span>
+                    <span class="words">FANTÁSTICO!</span>
+                    <span class="words">ESPLÊNDIDO!</span>
+                    <span class="words">FASCINANTE!</span>
+                    <span class="words">PRAZEROSO!</span> <!-- clone para efeito suave no carrosel-->
+                </div>
+        </div>
+        <p>Em nosso website, contamos com cursos, profissionais e videoaulas exemplares que impulsionam o aprendizado dos usuários ao máximo!</p>
+        
+
+        <div id="buttonWrapper">
+            <a href="#formSection">
+                <button>COMEÇAR!</button>
+            </a>
+        </div>
+    </section>
+
+  
+
+    <section id="membership-Section"> <!--entender melhor oq o # significa no alt-->
+        <div class="cards-membership">
+            <img src="1star.png" alt="#">
+            <h3>ASSINATURA LEVEL 1</h3>
+            <h4>ACESSO À:</h4>
+                <ul>
+                    <li>METADE DOS CURSOS</li>
+                    <li>CONTATO COM PROFESSORES</li>
+                    <li>TODAS AS VIDEOAULAS</li>
+                    <li>OPORTUNIDADES DE NETWORKING</li>
+                </ul>
+        </div> 
+
+        <div class="cards-membership">
+            <img src="2star.png" alt="#">
+            <h3>ASSINATURA LEVEL 2</h3>
+            <h4>ACESSO À:</h4>
+                <ul>
+                    <li>TODOS OS BENEFICIOS DO LEVEL 1</li>
+                    <li>SEM ANUNCIOS</li>
+                    <li>ACESSO A INTELIGENCIA ARTIFICIAL DO CURSO</li>
+                    <li>CONTEUDO ANTECIPADO DO CURSO</li>
+                </ul>
+        </div>
+
+        <div class="cards-membership">
+            <img src="3star.png" alt="#">
+            <h3>ASSINATURA LEVEL 3</h3>
+            <h4>ACESSO À:</h4>
+                <ul> <!-- o comeco da transicao de 768px. (por isso aumentei o mediaqueries pra 860) isso fica bugado, bom tentar resolver no final -->
+                    <li>TODOS OS BENEFICIOS DO LEVEL 1 E LEVEL 2</li>
+                    <li>LLM COM TOKEN PROPRIO PARA SUA CONTA</li>
+                    <li>ACESSO A CALLS COM CRIADORES DE CONTEUDO PARA O CURSO</li>
+                </ul>
+        </div>
+    </section>
+
+  
+
+    <article id="articleAbout">
+        <div id="textWrapper">
+            <h2>Redefinindo o Padrão de Performance e Colaboração</h2>
+            <p>Bem-vindo ao <strong class="redSiteBasis">.red</strong>, a plataforma que não apenas acompanha a evolução do seu negócio tech, mas a impulsiona. Em um mundo onde a velocidade da informação é o ativo mais valioso, o .red é a arquitetura que garante que sua equipe, seus dados e seus clientes estejam sempre sincronizados, operando na máxima eficiência.</p>
+                <ul>
+                    <li><strong class="redSiteBasis">Latência Otimizada</strong>: Respostas quase instantâneas para operações críticas.</li>
+                    <li><strong class="redSiteBasis">Escalabilidade Ilimitada</strong>: Cresça sem preocupações com a capacidade do sistema.</li>
+                    <li><strong class="redSiteBasis">Tempo de Atividade Garantido</strong>: Confiança e resiliência integradas em cada camada.</li>
+                </ul>
+            <p>Construído para a escala da tecnologia de ponta, o .red elimina os gargalos que retardam a inovação. Nossa infraestrutura de alta disponibilidade e baixa latência é projetada para processar petabytes de dados e suportar picos de tráfego, garantindo que suas aplicações e serviços entreguem uma experiência ininterrupta, tanto para sua equipe quanto para seus usuários finais.</p>
+        </div>   
+        
+        <div id="imgWrapper">
+            <a href="#">
+                <img src="logoCompany.jpg" alt="Foto da empresa." >
+            </a>
+        </div>
+    </article>
+
+    <section id="formSection">
+        <h2>Quer vir fazer parte do curso?</h2>
+        <h3>Se inscreva abaixo!</h3>
+        
+        <div id="formWrapper">
+            <form id="cadForm">
+               <label for="nome-usuario">Digite seu nome:</label>
+               <input class="inputDesign" type="text" id="nome-usuario" name="nome" maxlength="100" >
+               <!--LEMBRETE, ADICIONAR REQUIRED APOS TERMINAR AQUI NA TAG required-->
+
+               <label for="email-usuario">Digite seu email:</label>
+               <input class="inputDesign" type="email" id="email-usuario" name="email" maxlength="100" > <!--LEMBRETE, ADICIONAR REQUIRED APOS TERMINAR AQUI NA TAG required-->
+
+               <label for="mensagem-usuario">Digite uma mensagem (opcional):</label>
+               <textarea class="inputDesign" id="mensagem-usuario" name="texto" rows="5" cols="40" maxlength="385"></textarea>
+
+               <button id="botaoCadastrar" type="text" >CADASTRAR!</button> <!--type="submit" RECOLOCAR DEPOIS--> 
+            </form>
+        </div> 
+    </section>
+
+    <div id="popUpDiv">
+        <p>Cadastro realizado com sucesso.</p>
+        <button id="closePopUpDiv">
+            FECHAR
+        </button>
+    </div>
+
+    <footer id="footerContainer">   
+        <div id="footerLogoWrapper">
+            <div class="footerLogos">
+                <a href="#">
+                    <img src="facebook.png">
+                </a>
+            </div>
+
+            <div class="footerLogos">
+                <a href="#">
+                    <img src="instagram.png">
+                </a>
+            </div>
+
+            <div class="footerLogos">
+                <a href="#">
+                    <img src="twitter.png">
+                </a>
+            </div>
+        </div>    
+
+        <h3>Feito por Samuel Vendrame © 2025</h3>
+    </footer> <!-- TEM QUE TER GRID!!!-->
+
+    <script src="javascript.js"></script> <!--remover a class aq embaixo dps-->
+
+    <!-- <div id="popUpDiv">
+        <h1>aaaaa</h1>
+    </div> -->
+
+</body>
+</html>

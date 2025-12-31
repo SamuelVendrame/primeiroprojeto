@@ -1,0 +1,699 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Poppins", sans-serif; /*tenho que lembrar de stackar fontes tb, em certos casos onde o navegador/usuario nao tenha/nao suporte a fonte*/
+    line-height: 1.6;
+
+
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+#menu-Inicial{
+    background-color: rgb(7, 7, 7);
+    min-height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed; /* faz com que o menu, no celular, acompanhe o usuario independentemente se ele scrollar*/
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+ /*rever essa bosta pq vai se foder mano onde que existe vc fazer isso com max e min wdiht */
+
+.logoImg{/*lembrete, mudar esse menu inicial de h1 e resolver esse b.o da logo*/
+    animation:leftSlide 2.0s ease forwards;
+    max-width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    margin-top: 6px;
+} 
+
+.logoImg img{
+    max-width: 100%; /*entender melhor tb como a logo lidou com as metricas, e com a do contaienr pai tb*/
+    height: auto;
+    background: black;
+}
+
+#menu-Botao{
+    position: relative; /*entender melhor isso*/
+    border-style: none;
+    width: 1.5rem;
+    height: 50px;
+    background: transparent;
+
+}
+
+@keyframes leftSlide{
+    from{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rightSlide{
+    from{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes upperSlide{
+    from{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes downSlide{
+    from{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+.menu-Botao-linhas{
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    border-radius: 16px;
+    animation: rightSlide 2.0s ease forwards;
+    
+}
+
+#menu-Botao:hover{
+    cursor: pointer;
+}
+
+#nav-Links{
+    position: fixed;
+    height: 100vh;
+    width: 50%;
+
+    background-color: rgb(0, 0, 0);
+
+    top: 0;
+    left: 0; 
+    opacity: 0; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 1s ease;
+    transform: translateX(-100%);
+}
+
+#nav-Links li{
+    color: red;
+}
+
+ #nav-Links a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 15px 0;
+    }
+
+#nav-Links a:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.nav-Lists{
+    list-style: none;
+}
+
+@keyframes leftSlideNav{
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translate(0);
+    }
+}
+
+#nav-Links.menu-aberto{ /*considerar adicionar opacidade ao restante do site, se possivel (ja tentado) */
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#main-Content{
+    margin-top: 70px; /*mudar as medidas de PX para responsividade*/
+    padding: 20px; 
+    text-align: center;
+}
+
+#main-Content h1{
+    color: red;
+    animation: downSlide 1.5s;
+}
+
+#main-Content p{
+    animation: downSlide 3.0s;
+}
+
+#subtitleWrapper{
+    animation: downSlide 2.0s;
+    display: flex;
+    box-sizing: content-box; /*entender isso!!!*/
+    overflow: hidden;
+    justify-content: center;
+    height: 2rem;
+    margin: 1rem;
+    animation: downSlide 2.0s;
+    word-spacing: 0.12rem;
+
+}
+
+.words{
+    font-size: 1.5rem; /*entender*/
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block; /* entender isso melhor */
+    padding-left: 0.5REM;
+    animation: spin_words 25s infinite;
+    /*padding-left: 0.4rem;*/
+    color: red;
+   
+}
+/*pra parar com o overflow tem que ver o tamanho da div*/ 
+@keyframes spin_words{ /*copiado mas entendido*/
+    10%{
+        transform: translateY(0%);
+    }
+
+    20%{
+        transform: translateY(-100%);
+    }
+    
+    40%{
+        transform: translateY(-200%);
+    }
+    
+    60%{
+        transform: translateY(-300%);
+    }
+
+    90%{
+        transform: translateY(-400%);
+    }
+    
+    100%{
+        transform: translateY(-500%);
+    }
+    
+}
+
+#buttonWrapper{
+    animation: downSlide 3.0s ease-in-out; /*entender melhor esses comandos de ease e forwards, etc*/
+}
+
+#main-Content button{
+    margin-top: 15px;
+    min-width: 250px;
+    min-height: 65px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.4em;
+    transition: transform 2s ease-out;
+}
+
+#main-Content button:hover{
+    transform: translateY(-8px);
+    animation: glow 0.8s infinite alternate,
+    buttonTextChange 1s infinite alternate;
+}
+
+@keyframes buttonTextChange{
+    0%{
+        color: black;
+    }
+    50%{
+        color: rgb(228, 200, 149);
+    }
+    100%{
+        color: gold;
+    }
+    
+}
+
+@keyframes glow{
+    from{
+        box-shadow: 0 0 10px -10px rgb(3, 0, 0);
+    }
+    to{
+        box-shadow: 0 0 10px 10px rgb(155, 48, 29);
+    }
+}
+
+@keyframes glow-white{
+    from{
+        box-shadow: 0 0 10px -10px rgb(3, 0, 0);
+    }
+    to{
+        box-shadow: 0 0 10px 10px rgb(243, 240, 240);
+    }
+}
+
+#membership-Section{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  
+    margin: 0 auto;
+    width: 80vw;
+    background-color: rgb(255, 0, 0);
+    border-radius: 30px;
+    gap: 20px;
+    min-height: 45vh;
+    animation: downSlide 3s ease-in-out;
+    border: solid rgb(48, 28, 28, 0.6) 5px;
+    
+    flex-direction: column;  /* FORÇA o empilhamento vertical no celular: */
+}
+
+.cards-membership{
+    background-color: rgba(1, 1, 1, 0.8766);
+    opacity: 1;
+    height: 50%;
+    width: 75%;
+    margin: 1em 0;
+    border-radius: 30px;
+    justify-content: center;
+    transition: transform 2s ease-out; /* faz a conexao com o hover de baixo, fazendo com que a transicao para a animacao fique suave*/
+   /* margin: 0 80px;o que usar para fazer a quebra de linha como requisitado */
+    border: 7px solid rgb(75, 42, 42);
+    text-align: center;
+    
+}
+
+@keyframes borderColorChange{
+    10%{
+        border: solid rgb(230, 115, 115) 3px;
+    }
+    20%{
+        border: solid rgb(207, 162, 65) 5px;
+    }
+    40%{
+        border: solid rgb(121, 74, 20) 8px;
+    }
+    60%{
+        border: solid rgb(94, 19, 29) 10px;
+    }
+}
+
+
+
+.cards-membership:hover{
+    animation: glow-white 1s infinite alternate,
+               borderColorChange 3s infinite alternate, /*preciso entneder alternate e suas variaveis*/
+               buttonTextChange 1s infinite alternate;
+    transform: translateY(-20px);
+}
+
+.cards-membership:hover h3{
+    animation: buttonTextChange 1s ease forwards;
+}
+
+.cards-membership:focus{
+    animation: borderColorChange 5s infinite alternate; 
+}
+
+.cards-membership img{
+    max-width: 28%;
+    max-height: 40%;
+    margin: 0 auto; /* centraliza a div*/
+    display: block; /* centraliza a div PRECISO ENTENDER MELHOR O PQ DO USO DO BLOCK AQUI*/
+}
+
+.cards-membership h3{
+    font-size: large;
+    color: rgb(255, 255, 255);
+    
+}
+
+.cards-membership h4{
+    font-size: small;
+    color: rgb(255, 255, 255);
+   
+}
+
+.cards-membership li::before{
+   content: "➜ "; 
+}
+
+.cards-membership li::after{
+   content: ";"; 
+}
+
+.cards-membership li{ /*preciso entender pq a quebra de linha muda e ocorre quado a animacao do card acontece, e como reoslver*/
+    list-style: none;
+    color: #fff;
+    font-size: smaller;
+    margin: 1em;
+    
+}
+
+#articleAbout{
+    margin: 3rem auto;
+    text-align: center;
+    animation: downSlide 4.0s ease forwards;
+    min-height: 30rem;
+    width: 80vw;
+    line-height: 1.8;
+    align-items: center;
+}
+
+#articleAbout h2{
+    color: red;
+    
+}
+
+#articleAbout p{
+    font-size: 1.2rem;
+    height: 30%;
+    text-align: justify;
+    text-align-last: center;
+}
+
+#articleAbout li{
+    list-style: none;
+    text-align: justify;
+    margin: 0.5rem 1rem;
+}
+
+#articleAbout li::before{
+   content: "➜ "; 
+
+}
+
+
+.redSiteBasis{
+    color: RED;
+}
+
+#textWrapper{
+    height: auto;
+    width: auto;
+}
+
+#imgWrapper{
+    height: auto;
+}
+
+#imgWrapper img{
+    border: 3px solid rgb(90, 16, 16);
+    max-width: 70%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+#imgWrapper img:hover{
+    transition: transform 1s ease;
+    animation: glow 0.8s ease-in-out alternate 2;
+    border-radius: 0.5rem;
+}
+
+#formSection{
+    margin: 0 auto 3rem;
+    width: 90vw;
+    min-height: 20rem;
+    text-align: center;
+    animation: downSlide 4.0s ease-in-out;
+}
+ 
+#formSection h2{
+    font-size: 2.5rem;
+    color: red;
+}
+
+#formSection label{
+    font-weight: bold;
+    text-align: left;
+    margin: 0.5rem auto
+
+}
+
+
+#formWrapper{
+    width: 90%;
+    margin: 1.1rem auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+   
+}
+
+#formWrapper form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+#formWrapper form label,
+#formWrapper form input,
+#formWrapper form textarea{
+    width: 100%;
+}
+
+.inputDesign{  /*pensar em algo para melhorar essa digitacao nos inputs, pique inline-block*/
+    border-radius: 5px;
+    font-size: larger;
+    border: 3px solid rgb(204, 45, 45);
+    box-sizing: border-box;
+    padding: 0.5rem 0.7rem;
+}
+
+#formWrapper input:invalid{
+    border: 2px dashed red;
+}
+
+#formWrapper button{
+    margin-top: 3rem;
+    height: 4rem;
+    width: 12rem;
+    border-radius: 10px;
+    background-color: red;
+    animation: backgroundColorChange 10s infinite alternate;
+    font-size: larger;
+    color: white;
+    transition: transform 1s ease-out;
+}
+
+#formWrapper button:hover{
+    transform: translateY(-5px);
+    animation: buttonTextChange 1s infinite alternate;
+}
+
+@keyframes backgroundColorChange{
+    10%{
+        background-color: rgb(202, 133, 54);
+    }
+    25%{
+        background-color: rgb(202, 193, 64);
+    }
+    40%{
+        background-color: rgb(130, 185, 93);
+    }
+    60%{
+        background-color: rgb(74, 117, 209);
+    }
+    80%{
+        background-color: rgb(165, 49, 136);
+    }
+    100%{
+        background-color: rgb(207, 63, 75);
+    }
+
+}
+
+
+#popUpDiv{
+    position: fixed;
+    height: 30rem;
+    width: 50%;
+    max-width: 600px;
+
+    background-color: rgb(234, 236, 240);
+    border: 2px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /*usado para fazer a quebra de linha na Div popup.*/
+
+    top: 20%; 
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    transform: translateY(-120%);
+    transition: 1s ease-in-out;
+    opacity: 0;
+}
+
+#popUpDiv.showDiv{
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+#popUpDiv p,
+#popUpDiv button{
+    margin: 2rem;
+}
+
+#popUpDiv p{
+    font-weight: bold;
+    font-size: larger;
+}
+
+#closePopUpDiv{
+    background-color: red;
+    width: 30%;
+    height: 10%;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+
+#footerContainer{
+    margin-top: 3rem;
+    max-width: 100vw;
+    max-height: auto;
+    background-color: black;
+    padding: 2rem;  
+    gap: 2rem;
+    color: red;
+    display: grid;
+    justify-content: space-around;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footerLogoWrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.footerLogos img{
+    width: 2.5rem;
+}
+
+.footerLogos img:hover{
+    transform: translateY(-5px);
+    transition:  1s forwards;
+}
+
+#footerContainer h3{
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Tratando do DESKTOP a partir daqui*/ 
+
+@media (min-width: 860px){
+    #menu-Botao{
+        display: none;
+    }
+
+    #nav-Links{/* ENTENDER MELHOR!!! *//* ENTENDER MELHOR!!! *//* ENTENDER MELHOR!!! */
+        left: auto; 
+        position: static; 
+        height: auto;
+        width: auto;
+        background-color: transparent;
+        transition: none;
+        display: block;
+        animation: rightSlide 2.0s ease forwards;
+    
+    }
+
+    #nav-Links ul{
+        display: flex;
+    }
+
+    #nav-Links li{
+        margin: 0 15px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    #nav-Links a:hover{
+        color: red;
+        cursor: pointer;
+    }
+
+    #membership-Section{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        height: 30vh;
+        width: 90%;
+    
+    }
+
+    .cards-membership{
+        width: 30%;
+        height: 80%;
+    
+    }
+}
+
+
+
+
+
