@@ -242,9 +242,11 @@ html{
 }
 
 #main-Content button{
-    margin-top: 15px;
-    min-width: 250px;
-    min-height: 65px;
+    margin-top: 1rem;
+    min-width: 13rem;
+    max-width: 20rem;
+    min-height: 4rem;
+    max-height: 7rem;
     background-color: rgb(255, 0, 0);
     border-radius: 15px;
     font-weight: bold;
@@ -690,6 +692,11 @@ html{
         width: 30%;
         height: 80%;
     
+    }
+
+    #imgWrapper img{
+        max-width: 600px;
+        width: 50%;
     }
 }
 

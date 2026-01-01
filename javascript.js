@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function(){
     const botaoCadastrar = document.getElementById('botaoCadastrar');
     const popUpDiv = document.getElementById('popUpDiv');
     
-    if(botaoCadastrar && popUpDiv){
+    /*if(botaoCadastrar && popUpDiv){ escondido para que so funcione ao preencher o forms, mas esse eh o codigo original
         botaoCadastrar.addEventListener('click', function(event){
-            event.preventDefault()
+           
             popUpDiv.classList.toggle('showDiv');
         })
-    }
+    }*/
 
     const fecharDivPopUp = document.getElementById('closePopUpDiv')
     fecharDivPopUp.addEventListener("click", function(event){
@@ -33,21 +33,34 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 
-const form = document.getElementById('cadForm');
+document.addEventListener('click', (e) => {
+    const formulario = document.getElementById('cadForm')
+    const botao = document.getElementById('botaoCadastrar')
 
-form.addEventListener('submit', (event) => { 
-    event.preventDefault();
-    validarForm();
-}); 
+    if (formulario) {
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nomeUsuario = document.getElementById('nome-usuario').value;
+            const emailUsuario = document.getElementById('email-usuario').value;
 
-function validarForm(){
-    const nome = document.getElementById('nome-usuario').value;
-    const nomeLimpo = nome.value
+            const nomeUsuarioLimpo = nomeUsuario.trim();
+            const emailUsuarioLimpo = emailUsuario.trim();
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; /*entender melhor esse capeta kkkkkkk*/
 
-
-    if(nomeLimpo < 5){
-        return alert("Nome nao pode ter menos de 5 caracteres.");
+            if(nomeUsuarioLimpo == ""){
+                return alert("Nome vazio")
+            }
+            else if(emailUsuarioLimpo == ""){
+                return alert("Email vazio")
+            }
+            else if(!regexEmail.test(emailUsuarioLimpo)){
+                return alert("Formato de email Invalido.")
+            }
+            else{
+                popUpDiv.classList.toggle('showDiv');
+                formulario.reset();
+            }
+        });
     }
-
-}
+});
 
