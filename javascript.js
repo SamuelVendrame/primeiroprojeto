@@ -31,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 })
-
-
-document.addEventListener('click', (e) => {
+document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('cadForm')
     const botao = document.getElementById('botaoCadastrar')
 
@@ -47,20 +45,29 @@ document.addEventListener('click', (e) => {
             const emailUsuarioLimpo = emailUsuario.trim();
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; /*entender melhor esse capeta kkkkkkk*/
 
-            if(nomeUsuarioLimpo == ""){
+            if(nomeUsuarioLimpo === ""){
+                console.log('1')
                 return alert("Nome vazio")
             }
-            else if(emailUsuarioLimpo == ""){
+            else if(emailUsuarioLimpo === ""){
+                console.log('2')
                 return alert("Email vazio")
+                
             }
             else if(!regexEmail.test(emailUsuarioLimpo)){
+                console.log('3')
                 return alert("Formato de email Invalido.")
             }
             else{
-                popUpDiv.classList.toggle('showDiv');
-                formulario.reset();
+                botao.disabled = true;
+                    setTimeout(() => {
+                        popUpDiv.classList.toggle('showDiv');
+                        formulario.reset();
+                        botao.disabled = false;},
+                    3000);
             }
         });
     }
 });
+
 
